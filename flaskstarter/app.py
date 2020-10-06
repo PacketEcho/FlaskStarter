@@ -2,9 +2,9 @@ import os
 
 from flask import Flask, render_template, url_for
 
-from . import config
-from .extensions import db
-from .views import home
+from flaskstarter import config
+from flaskstarter.extensions import db
+from flaskstarter.main import main_routes
 
 app_env = os.environ.get('APPLICATION_ENVIRONMENT') or 'production'
 
@@ -32,7 +32,7 @@ def register_extensions(app):
 
 
 def register_blueprints(app):
-    app.register_blueprint(home.blueprint)
+    app.register_blueprint(main_routes.blueprint)
 
     return None
 
