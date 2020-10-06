@@ -6,8 +6,8 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+        {% block stylesheets %}{% endblock stylesheets %}
 
         <title>{% if title %}{{ title }}{% else %}FlaskStarter{% endif %}</title>
 
@@ -16,14 +16,14 @@
     <body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('home.index') }}">Flask Starter</a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Flask Starter</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {% set navigation_bar = [
-                (url_for('home.index'), 'home', 'Home'),
+                (url_for('main.index'), 'home', 'Home'),
             ] -%}
                 <ul class="navbar-nav mr-auto">
                     {% for href, id, caption in navigation_bar %}
