@@ -3,8 +3,9 @@ import os
 from flask import Flask, render_template, url_for
 
 from flaskstarter import config
-from flaskstarter.extensions import db
+from flaskstarter.extensions import db, login_manager
 from flaskstarter.main import main_routes
+from flaskstarter.user import user_routes
 
 app_env = os.environ.get('APPLICATION_ENVIRONMENT') or 'production'
 
@@ -27,12 +28,14 @@ def create_app():
 
 def register_extensions(app):
     db.init_app(app)
+    login_manager.init_app(app)
 
     return None
 
 
 def register_blueprints(app):
     app.register_blueprint(main_routes.blueprint)
+    app.register_blueprint(user_routes.blueprint)
 
     return None
 

@@ -8,6 +8,10 @@ class Config:
     SECRET_KEY = os.environ.get('FLASK_SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = 'sqlite://app.sqlite'
+    GOOGLE_OAUTH_CLIENT_ID = os.environ.get('GOOGLE_OAUTH_CLIENT_ID')
+    GOOGLE_OAUTH_CLIENT_SECRET = os.environ.get('GOOGLE_OAUTH_CLIENT_SECRET')
+    GOOGLE_OAUTH_PROJECT_ID = os.environ.get('GOOGLE_OAUTH_PROJECT_ID')
+    GOOGLE_DISCOVERY_URL = os.environ.get('GOOGLE_DISCOVERY_URL')
 
 
 class TestConfig(Config):
