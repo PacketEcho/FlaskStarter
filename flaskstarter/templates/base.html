@@ -32,6 +32,12 @@
                             <li class="nav-item{% if id == active_page %} active{% endif %}"><a href="{{ href|e }}" class="nav-link">{{ caption|e }}</a></li>
                         {% endfor %}
                     </ul>
+                    {% if current_user.is_anonymous %}
+                        <a class="btn btn-light" href="{{ url_for('user.index') }}">Login</a>
+                    {% else %}
+                        <span class="navbar-text">Welcome {{ current_user.username }}</span>
+                    {% endif %}
+
                 </div>
             </div>
         </nav>

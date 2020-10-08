@@ -1,0 +1,41 @@
+{% extends "simple.html" %}
+
+{% block title %} Login {% endblock title %}
+
+{% block stylesheets %}
+    <style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .login {
+        width: 100%;
+        max-width: 50%;
+        padding: 15px;
+        margin: auto;
+    }
+    </style>
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="login text-center">
+        {% if msg %}
+            <span class="text-danger">{{ msg | safe }}</span>
+        {% else %}
+            <h1 class="display-4">You must login with your Google account to continue.</h1>
+            <a href="{{ url_for('user.login') }}" role="button"><img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png"></a>
+        {% endif %}
+    </div>
+{% endblock content %}
+
+{% block javascripts %}{% endblock javascripts %}
